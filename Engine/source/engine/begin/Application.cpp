@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "../debug/loggingEngine.h"
+#include "../debug/EngineDebug.h"
 
 Application::Application(int width, int height, std::string_view windowName)
 	: m_width(width), m_height(height), m_windowName(windowName),
