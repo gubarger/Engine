@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "../debug/EngineDebug.h"
+#include "../engineErrors/EngineDebug.h"
 
 Application::Application(int width, int height, std::string_view windowName)
 	: m_width(width), m_height(height), m_windowName(windowName),
@@ -61,6 +61,8 @@ void Application::Initialize() {
         };
 
     glfwSetKeyCallback(m_window, keyCallback);
+
+    m_viewport.Initialize(1024, 768);
 }
 
 void Application::Run() {
@@ -72,20 +74,34 @@ void Application::MainLoop() {
     {
         glfwPollEvents();
 
+        // Render 3D scene
+        m_viewport.BeginFrame();
+        // the future renderer.RenderScene();
+        m_viewport.EndFrame();
+
         int width, height;
         glfwGetFramebufferSize(m_window, &width, &height);
 
         if (width == 0 || height == 0) continue;
 
         glViewport(0, 0, width, height);
-        glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+        glClearColor(0.2f, 0.2f, 0.2f, 1.00f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        m_uiEngine.Render();
+        m_uiEngine.Render(m_viewport.GetTextureID(), m_viewport.GetSize());
+
+        static ImVec2 lastSize = { 0, 0 };
+
+        ImVec2 currentSize = ImVec2(width, height);
+        if (lastSize.x != currentSize.x || lastSize.y != currentSize.y)
+        {
+            // Updating window sizes when changing
+            lastSize = currentSize;
+        }
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

@@ -3,11 +3,13 @@
 
 int main()
 {
-    try {
+    try 
+    {
         Application app(1280, 720, "3D Engine");
         app.Run();
     }
-    catch (const std::exception& e) {
+    catch (const std::exception& e) 
+    {
         std::cerr << "Fatal error: " << e.what() << "\n";
         return -1;
     }

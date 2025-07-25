@@ -5,6 +5,7 @@
 #include <imgui_impl_opengl3.h>
 #include "../interface/InterfaceEngine.h"
 #include "../input/InputHandler.h"
+#include "Viewport.h"
 #include <memory>
 #include <string>
 
@@ -28,7 +29,10 @@ private:
     int m_height;
     std::string m_windowName;
     GLFWwindow* m_window = nullptr;
+    
+    // Classes inc
     InterfaceEngine m_uiEngine;
     InputHandler m_inputHandler;
+    Viewport m_viewport;
 
 };

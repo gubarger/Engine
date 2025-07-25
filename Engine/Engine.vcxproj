@@ -28,7 +28,7 @@
   <ItemGroup>
     <ClInclude Include="source\engine\begin\Application.h" />
     <ClInclude Include="source\engine\begin\Viewport.h" />
-    <ClInclude Include="source\engine\debug\logging.h" />
+    <ClInclude Include="source\engine\engineErrors\EngineDebug.h" />
     <ClInclude Include="source\engine\input\InputHandler.h" />
     <ClInclude Include="source\engine\interface\InterfaceEngine.h" />
   </ItemGroup>

@@ -35,7 +35,7 @@
     <ClInclude Include="source\engine\begin\Application.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="source\engine\debug\logging.h">
+    <ClInclude Include="source\engine\engineErrors\EngineDebug.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="source\engine\input\InputHandler.h">
