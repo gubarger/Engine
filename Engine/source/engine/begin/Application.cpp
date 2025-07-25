@@ -14,7 +14,7 @@ Application::~Application() {
 void Application::Initialize() {
     if (!glfwInit()) 
     {
-        throw Logging::Error("GLFW initialization failed");
+        throw Debuging::Error("GLFW initialization failed");
     }
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -25,7 +25,7 @@ void Application::Initialize() {
     if (!m_window) 
     {
         glfwTerminate();
-        throw Logging::Error("Window create failed");
+        throw Debuging::Error("Window create failed");
     }
 
     glfwMakeContextCurrent(m_window);
@@ -33,7 +33,7 @@ void Application::Initialize() {
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) 
     {
-        throw Logging::Error("GLAD initialization failed");
+        throw Debuging::Error("GLAD initialization failed");
     }
 
     IMGUI_CHECKVERSION();
@@ -44,12 +44,12 @@ void Application::Initialize() {
 
     if (!ImGui_ImplGlfw_InitForOpenGL(m_window, true)) 
     {
-        throw Logging::Error("Failed to initialize ImGui GLFW backend!");
+        throw Debuging::Error("Failed to initialize ImGui GLFW backend!");
     }
 
     if (!ImGui_ImplOpenGL3_Init("#version 410"))
     {
-        throw Logging::Error("Failed to initialize ImGui OpenGL backend!");
+        throw Debuging::Error("Failed to initialize ImGui OpenGL backend!");
     }
 
     // Configuring the Input handler
