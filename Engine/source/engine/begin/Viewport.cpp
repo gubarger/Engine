@@ -8,6 +8,34 @@ Viewport::~Viewport() {
 	if (m_rbo) glDeleteRenderbuffers(1, &m_rbo);
 }
 
+void Viewport::RenderScene(const Scene& scene, Shader& shader3D, Shader& shader2D) {
+	BeginFrame();
+	{
+		// Render 3D obj
+		for (const auto& obj : scene.GetObjects())
+		{
+			if (obj->GetType() == ObjectType::OBJECT_3D)
+			{
+				obj->Render(shader3D);
+			}
+		}
+
+		// Render 2D obj
+		glDisable(GL_DEPTH_TEST);
+		{
+			for (const auto& obj : scene.GetObjects())
+			{
+				if (obj->GetType() == ObjectType::OBJECT_2D)
+				{
+					obj->Render(shader2D);
+				}
+			}
+		}
+		glEnable(GL_DEPTH_TEST);
+	}
+	EndFrame();
+}
+
 void Viewport::Initialize(int width, int height) {
 	// Create textures for rendering
 	glGenTextures(1, &m_texture);

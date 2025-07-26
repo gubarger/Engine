@@ -20,17 +20,49 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\engine\begin\Application.cpp" />
+    <ClCompile Include="source\engine\begin\Camera.cpp" />
+    <ClCompile Include="source\engine\begin\Scene.cpp" />
+    <ClCompile Include="source\engine\begin\SceneManager.cpp" />
+    <ClCompile Include="source\engine\begin\SceneSerializer.cpp" />
     <ClCompile Include="source\engine\begin\Viewport.cpp" />
     <ClCompile Include="source\engine\input\InputHandler.cpp" />
     <ClCompile Include="source\engine\interface\InterfaceEngine.cpp" />
+    <ClCompile Include="source\engine\object\3Dobject\Cube.cpp" />
+    <ClCompile Include="source\engine\object\GameObject.cpp" />
+    <ClCompile Include="source\engine\object\Model.cpp" />
+    <ClCompile Include="source\engine\object\ModelObject.cpp" />
+    <ClCompile Include="source\engine\object\SpriteObject.cpp" />
+    <ClCompile Include="source\engine\object\Texture.cpp" />
+    <ClCompile Include="source\engine\resource\ResourceManager.cpp" />
+    <ClCompile Include="source\engine\shader\Shader.cpp" />
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\engine\begin\Application.h" />
+    <ClInclude Include="source\engine\begin\Camera.h" />
+    <ClInclude Include="source\engine\begin\Scene.h" />
+    <ClInclude Include="source\engine\begin\SceneManager.h" />
+    <ClInclude Include="source\engine\begin\SceneSerializer.h" />
     <ClInclude Include="source\engine\begin\Viewport.h" />
     <ClInclude Include="source\engine\engineErrors\EngineDebug.h" />
     <ClInclude Include="source\engine\input\InputHandler.h" />
     <ClInclude Include="source\engine\interface\InterfaceEngine.h" />
+    <ClInclude Include="source\engine\light\Light.h" />
+    <ClInclude Include="source\engine\object\3Dobject\Cube.h" />
+    <ClInclude Include="source\engine\object\GameObject.h" />
+    <ClInclude Include="source\engine\object\Material.h" />
+    <ClInclude Include="source\engine\object\Model.h" />
+    <ClInclude Include="source\engine\object\ModelObject.h" />
+    <ClInclude Include="source\engine\object\SpriteObject.h" />
+    <ClInclude Include="source\engine\object\Texture.h" />
+    <ClInclude Include="source\engine\resource\ResourceManager.h" />
+    <ClInclude Include="source\engine\shader\Shader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source\engine\shader\shader.frag" />
+    <None Include="source\engine\shader\shader.vert" />
+    <None Include="source\engine\shader\sprite.frag" />
+    <None Include="source\engine\shader\sprite.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

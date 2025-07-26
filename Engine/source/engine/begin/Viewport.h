@@ -2,16 +2,23 @@
 
 #include <GLFW/glfw3.h>
 #include <imgui.h>
+#include "Scene.h"
 
 class Viewport {
 public:
-	Viewport() {}
-	~Viewport();
+    Viewport() : m_width(0), m_height(0) {}
+    ~Viewport();
 
-	void Initialize(int width, int height);
-	void Resize(int width, int height);
-	void BeginFrame();
-	void EndFrame();
+    void RenderScene(const Scene& scene, Shader& shader3D, Shader& shader2D);
+    void Initialize(int width, int height);
+    
+    void Resize(int width, int height);
+
+    void BeginFrame();
+    void EndFrame();
+
+    int GetWidth() const { return m_width; }
+    int GetHeight() const { return m_height; }
 
 public:
 	unsigned int GetTextureID() const { return m_texture; }
@@ -23,5 +30,8 @@ private:
 	unsigned int m_rbo = 0;        // Renderbuffer Object (for depth)
 
 	ImVec2 m_size = { 0, 0 };        // Current viewport size
+
+	int m_width = 0;
+	int m_height = 0;
 
 };
